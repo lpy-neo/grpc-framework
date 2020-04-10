@@ -1,0 +1,14 @@
+syntax = "proto3";
+package hello;
+option go_package = "github.com/lpy-neo/grpc-framework/api/proto/hello";
+
+import "google/api/annotations.proto";
+import "api/proto/shared/types/string_message.proto";
+
+service HelloService {
+  rpc Hello(types.StringMessage) returns (types.StringMessage) {
+    option (google.api.http) = {
+      get: "/v1/hello"
+    };
+  }
+}
